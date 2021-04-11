@@ -1,4 +1,5 @@
 # x-DisGraFS
 Distributed Graph Filesystem
 
-![img](./DisGraFS.png)
+<img src="./DisGraFS.png" width="200px"/>
+
