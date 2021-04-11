@@ -400,7 +400,7 @@ deleted .\b.txt
 
   ![pke](./src/pke.png)
 
-- **yeke**
+- **yake**
 
   - 实现语言：python
 
