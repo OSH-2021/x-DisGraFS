@@ -1,4 +1,4 @@
 # x-DisGraFS
 Distributed Graph Filesystem
 
-![](.\DisGraFS.png)
+![img](.\DisGraFS.png)
