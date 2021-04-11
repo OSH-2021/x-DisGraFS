@@ -648,16 +648,51 @@ Ceph存储系统的设计目标是提供高性能、高可扩展性、高可用�
 ## 参考文献
 
 [^1]: 王磊 HDFS文件系统升级方案的研究与实现 南京邮电大学硕士学位论文 2020
+
+
+
 [^2]: 黄永胜 分布式文件系统Lustre的研究  东北大学硕士学位论文 2020
+
+
+
 [^3]: 张晓 张思蒙等 Ceph分布式存储系统性能优化技术研究综述 计算机科学 2021
+
+
+
 [^4]: 姚孝珍 云平台下基于MooseFS的网盘系统架构及关键技术的设计与实现 电子科技大学硕士学位论文 2020
+
+
+
 [^5]: 刘俊强 基于FastDFS云存储系统的研究与设计 电子科技大学硕士学位论文 2016
+
+
+
 [^6]: 杨洪章 杨雅辉等 基于用户态文件系统的共享访问与性能提升研究 北京大学学报 2020,56(06)
+
+
+
 [^7]: [Database File System](http://dbfs.sourceforge.net/)
+
+
+
 [^8]: [Database File System Wikipedia](https://en.wikipedia.org/wiki/File_system#Database_file_systems)
-[^9]: [TagFS]([https://www.semanticscholar.org/paper/TagFS-Tag-Semantics-for-Hierarchical-File-Systems-Bloehdorn-G%C3%B6rlitz/974c473825c7186fddb2d14a63ea30f44a369bc8](https://www.semanticscholar.org/paper/TagFS-Tag-Semantics-for-Hierarchical-File-Systems-Bloehdorn-Görlitz/974c473825c7186fddb2d14a63ea30f44a369bc8))
+
+
+
+[^9]: [TagFS](https://www.semanticscholar.org/paper/TagFS-Tag-Semantics-for-Hierarchical-File-Systems-Bloehdorn-Görlitz/974c473825c7186fddb2d14a63ea30f44a369bc8)
+
+
+
 [^10]: [HDFS wikipedia](https://en.wikipedia.org/wiki/Apache_Hadoop#HDFS)
 
-[^11]: [neo4j documentation](![img](file:///C:\Users\CHANGEX\AppData\Roaming\Tencent\QQTempSys\%W@GJ$ACOF(TYDYECOKVDYB.png)http://neo4j.com.cn/public/docs/index.html) ↩
+
+
+[^11]: [neo4j documentation](http://neo4j.com.cn/public/docs/index.html)
+
+
+
 [^12]: [tigergraph](https://docs.tigergraph.com/)
+
+
+
 [^13]: [DB ENGINE](https://db-engines.com/en/ranking/graph+dbms)
