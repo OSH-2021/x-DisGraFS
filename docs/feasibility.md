@@ -20,7 +20,7 @@
 
 ​	[**Linux平台下的FTP服务器**](#Linux平台下的FTP服务器-VSFTP)
 
-​	[**Windows平台下的FTP服务器**](#Windows平台下的FTP服务器-FileZilla Server)
+​	[**Windows平台下的FTP服务器**](#Windows平台下的FTP服务器-FileZillaServer)
 
 ​	[**NEO4J**](#neo4j)
 
@@ -290,7 +290,7 @@ vsftpd restart
 
 ​		值得注意的是，在每一次修改配置文件之后均需要重启vsftpd服务器。
 
-### Windows平台下的FTP服务器-FileZilla Server
+### Windows平台下的FTP服务器-FileZillaServer
 
 ​		基于Windows Server的服务器具有图形界面，使用开源FTP解决方案FileZilla的服务端软件，可以方便地进行FTP服务器的搭建。该软件支持多个FTP用户、用户组权限管理、主动/被动模式等FTP功能，可以用作项目中Windows平台主机/从机架设FTP服务器的解决方案。
 
