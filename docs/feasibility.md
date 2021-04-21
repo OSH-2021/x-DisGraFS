@@ -360,7 +360,7 @@ Neo4j是一个高性能的NOSQL图形数据库，它将结构化数据存储在�
 
   使用上述代码，即可创造出如下图所示的简单图:
 
-  ![simple_example](./scr/simple_example.png)
+  ![simple_example](./src/simple_example.png)
 
   在这个图中，如果我们需要查询John的朋友，只需要使用下面的语句：
 
