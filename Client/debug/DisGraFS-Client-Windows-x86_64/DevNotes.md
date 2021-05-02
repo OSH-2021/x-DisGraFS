@@ -29,7 +29,7 @@
     - exit: `{"command": "exit", "parameter": []}`
     - open: `{"command": "open", "parameter": ["RollIt.jpg"]}`
 - Establishes watchdog observer on mounted drive
-  - Listens to filesystem events and reports to server via webscket
+  - Listens to filesystem events and reports to server via websocket
   - Report format: 
     - Create: `{"type": "create", "path1": "folder/newfile.txt", "path2": "", "time": 1619926181000}`
     - Modify: `{"type": "modify", "path1": "folder/modified.txt", "path2": "", "time": 1619926181000}`
