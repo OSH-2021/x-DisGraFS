@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/bin/python3 /home/hurrypeng/Desktop/DisGraFS-Client-Linux-x86_64/DisGraFS-Client.py %u
+Name=disgrafs
+GenericName=DisGraFS Client URL Protocol Handler
+Terminal=true
+Categories=Network;Application;
+MimeType=x-scheme-handler/disgrafs
+Encoding=UTF-8
