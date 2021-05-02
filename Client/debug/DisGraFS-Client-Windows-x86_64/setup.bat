@@ -1,7 +1,11 @@
 @echo off
 
-echo Installing python module Watchdog
+echo Installing python module watchdog
 pip install watchdog
+echo Complete
+
+echo Installing python module websockets
+pip install websockets
 echo Complete
 
 echo Generating .reg file...
