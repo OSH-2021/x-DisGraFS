@@ -7,7 +7,7 @@ by HurryPeng
 ### setup.bat/setup.sh
 
 - For Windows/Ubuntu
-- Assumes python3 has been installed and `python.exe` has been added to `path`
+- Assumes python3 has been installed and added to `path`
 - Installs `watchdog` module for python
 - Installs `websockets` module for python
 - Generates `DisGraFS-Client-Register-Generated.reg`/`disgrafs.desktop` for current working directory and adds it to system configuration
