@@ -61,7 +61,7 @@ if __name__ == "__main__":
         sys.exit(-3)
 
     print("Starting juicefs...")
-    juicefsProcess = subprocess.Popen(["juicefs.exe", "-q", "mount", redisUrl, mountPointNoSlash], shell=True)
+    juicefsProcess = subprocess.Popen(["juicefs", "-q", "mount", redisUrl, mountPointNoSlash], shell=True)
     print("Juicefs started")
 
     ############
