@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+[HKEY_CLASSES_ROOT\disgrafs]
+@="URL:disgrafs Protocol Handler"
+"URL Protocol"=""
+[HKEY_CLASSES_ROOT\disgrafs\shell]
+[HKEY_CLASSES_ROOT\disgrafs\shell\open]
+[HKEY_CLASSES_ROOT\disgrafs\shell\open\command]
+@="cmd.exe /C python D:\Desktop\DisGraFS-Client\DisGraFS-Client.py \"%1\""
