@@ -61,7 +61,7 @@ if __name__ == "__main__":
         sys.exit(-3)
 
     print("Starting juicefs...")
-    juicefsProcess = subprocess.Popen(["juicefs", "-q", "mount", redisUrl, mountPointNoSlash], shell=True)
+    subprocess.Popen(["juicefs", "-q", "mount", redisUrl, mountPointNoSlash], shell=True)
     print("Juicefs started")
 
     ############
@@ -148,11 +148,8 @@ if __name__ == "__main__":
             try:
                 command = eval(socketRecv)
                 if command["command"] == "exit":
-                    my_observer.stop()
-                    juicefsProcess.terminate()
-                    await wsClient.close()
-                    input("Press Enter to quit")
-                    sys.exit(0)
+                    asyncio.get_event_loop().stop()
+                    return
                 elif command["command"] == "open":
                     webbrowser.open("file://" + mountPointSlash + command["parameter"][0])
                 else:
@@ -166,8 +163,11 @@ if __name__ == "__main__":
         loop.run_until_complete(asyncio.wait([wsSender(wsClient), wsReceiver(wsClient)]))
 
     except KeyboardInterrupt:
+        pass
+
+    finally:
         my_observer.stop()
-        juicefsProcess.terminate()
+        subprocess.Popen(["juicefs", "umount", mountPointNoSlash], shell=True).wait()
         loop.call_soon(wsClient.close())
         input("Press Enter to quit")
         sys.exit(0)

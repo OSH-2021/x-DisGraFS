@@ -34,7 +34,11 @@ async def recv_msg(websocket):
             target = recv_dict["path2"]
 
         if target != "":
-            response_dict = {"command": "open", "parameter": [target]}
+            response_dict = {}
+            if "exit" in target:
+                response_dict = {"command": "exit", "parameter": []}
+            else:
+                response_dict = {"command": "open", "parameter": [target]}
             print("response: ", repr(response_dict))
             await websocket.send(repr(response_dict))
 
