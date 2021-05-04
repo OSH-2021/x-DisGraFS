@@ -135,13 +135,9 @@ if __name__ == "__main__":
     my_observer.start()
     print("Watchdog observer established")
 
-    async def main():
+    async def login():
         wsClient = await websockets.connect(wsUrl)
-        while True:
-            await wsClient.send(wsAuth)
-            response_str = await wsClient.recv()
-            if "congratulation" in response_str:
-                break
+        await wsClient.send(wsAuth)
         return wsClient
 
     async def wsSender(wsClient):
@@ -167,7 +163,7 @@ if __name__ == "__main__":
 
     try:
         loop = asyncio.get_event_loop()
-        wsClient = loop.run_until_complete(main())
+        wsClient = loop.run_until_complete(login())
         loop.run_until_complete(asyncio.wait([wsSender(wsClient), wsReceiver(wsClient)]))
 
     except KeyboardInterrupt:
