@@ -57,6 +57,7 @@ Websocket client for local testing.
 
 ### wsServer.py
 
-Websocket server for local testing. After authenticating the client, this server would wait for filesystem event report from the client. On receiving, it would send back an `open` command to the client telling the client to open the just-operated file (unless it was deleted). 
+Websocket server for local testing. After authenticating the client, this server would wait for filesystem event report from the client. On receiving, it would send back an `open` command to the client telling the client to open the just-operated file (unless it was deleted). Specially, if `"exit"` was included in the target filename, it woud send an `exit` comman instead. 
 
-To test the functionality of the client, run `wsServer.py` first, then call the client with `CallClient.html` (or type the URL in a browser, whichever you like). Operate on any file in the mounted directory, and the client would report it to the server, who sends back an `open` command to the client, resulting in the client's always opening the just-operated file. If this is the case, then the client should be working properly. 
+To test the functionality of the client, run `wsServer.py` first, then call the client with `CallClient.html` (or type the URL in a browser, whichever you like). Operate on any file in the mounted directory, and the client would report it to the server, who sends back an `open` command to the client, resulting in the client's always opening the just-operated file until an `exit` is received. If this is the case, then the client should be working properly. 
+
