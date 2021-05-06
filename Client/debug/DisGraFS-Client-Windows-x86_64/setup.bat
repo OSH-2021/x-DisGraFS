@@ -1,5 +1,14 @@
 @echo off
 
+reg query HKEY_CLASSES_ROOT\Installer\Dependencies\WinFsp>nul 2>nul
+if %errorlevel%==0 echo WinFsp Already Installed && goto WINFSPINSTALLED
+
+echo Installing WinFsp...
+winfsp-1.8.20304.msi
+echo WinFsp Installed
+
+:WINFSPINSTALLED
+
 echo Installing python module watchdog
 pip install watchdog
 echo Complete
