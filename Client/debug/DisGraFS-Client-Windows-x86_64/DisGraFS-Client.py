@@ -80,6 +80,7 @@ if __name__ == "__main__":
         return repr(dictObj)
 
     sendTasklist = deque()
+    modifyCounter = dict()
 
     print("Establishing watchdog observer...")
 
@@ -89,7 +90,8 @@ if __name__ == "__main__":
             message = "file "
             message += f"{event.src_path} created"
             print(message)
-            sendTasklist.append(createDatapack("create", event.src_path))
+            #sendTasklist.append(createDatapack("create", event.src_path))
+            modifyCounter[event.src_path] = 0
 
     def on_deleted(event):
         message = "Watchdog: "
@@ -97,7 +99,7 @@ if __name__ == "__main__":
             message = "file "
             message += f"{event.src_path} deleted"
             print(message)
-            sendTasklist.append(createDatapack("delete", event.src_path))
+            sendTasklist.append({"time": time.time(), "message": createDatapack("delete", event.src_path)})
 
     def on_modified(event):
         message = "Watchdog: "
@@ -105,7 +107,11 @@ if __name__ == "__main__":
             message = "file "
             message += f"{event.src_path} modified"
             print(message)
-            sendTasklist.append(createDatapack("modify", event.src_path))
+            modifyCounter[event.src_path] = modifyCounter[event.src_path] + 1
+            if modifyCounter[event.src_path] == 3:
+                modifyCounter[event.src_path] = 0
+                #sendTasklist.append(createDatapack("modify", event.src_path))
+                sendTasklist.append({"time": time.time(), "message": createDatapack("create", event.src_path)})
 
     def on_moved(event):
         message = "Watchdog: "
@@ -113,7 +119,7 @@ if __name__ == "__main__":
             message = "file "
             message += f"{event.src_path} moved to {event.dest_path}"
             print(message)
-            sendTasklist.append(createDatapack("move", event.src_path, event.dest_path))
+            sendTasklist.append({"time": time.time(), "message": createDatapack("move", event.src_path, event.dest_path)})
 
     event_handler = FileSystemEventHandler()
     event_handler.on_created = on_created
@@ -136,7 +142,11 @@ if __name__ == "__main__":
         while True:
             while len(sendTasklist) == 0:
                 await asyncio.sleep(0.1)
-            await wsClient.send(sendTasklist.popleft())
+            toSend = sendTasklist.popleft()
+            while time.time() < toSend["time"]:
+                await asyncio.sleep(0.1)
+            print("Message sent: ", toSend["message"])
+            await wsClient.send(toSend["message"])
 
     async def wsReceiver(wsClient):
         while True:
@@ -149,6 +159,7 @@ if __name__ == "__main__":
                 elif command["command"] == "open":
                     webbrowser.open("file://" + mountPointSlash + command["parameter"][0])
                 elif command["command"] == "delete":
+                    #print("deleting: ", mountPointSlash + command["parameter"][0])
                     os.remove(mountPointSlash + command["parameter"][0])
                 else:
                     print("Error: Failed to resolve command from server:", socketRecv)
