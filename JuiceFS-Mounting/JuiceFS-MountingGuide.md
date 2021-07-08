@@ -26,6 +26,8 @@ juicefs mount redis://:disgrafs@juicefs.disgrafs.tech Z: -v --writeback
 
 Linux下可以挂载到任意文件夹，但如果挂载的文件夹需要sudo权限，那么也要用sudo运行`juicefs`。同样按下`Ctrl + C`结束程序即可自动卸载。
 
+**注意！**直接从网络上下载的`juicefs`可执行文件在一些Linux系统上由于不受信而无法执行，这时需要先执行`chmod 777 juicefs`。
+
 ## MacOS
 
 黑苹果还没装好，抱歉。
