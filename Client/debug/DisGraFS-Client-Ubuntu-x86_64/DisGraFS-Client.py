@@ -156,10 +156,12 @@ if __name__ == "__main__":
                     return
                 elif command["command"] == "open":
                     webbrowser.open("file://" + mountPointSlash + command["parameter"][0])
+                elif command["command"] == "delete":
+                    os.remove(mountPointSlash + command["parameter"][0])
                 else:
                     print("Error: Failed to resolve command from server:", socketRecv)
             except Exception:
-                print("Error: Failed to resolve command from server:", socketRecv)
+                print("Error: Failed to execute command from server:", socketRecv)
 
     try:
         loop = asyncio.get_event_loop()
