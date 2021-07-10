@@ -36,7 +36,7 @@ ray start --head --port=6379
 
 预期看到以下界面
 
-![image-20210430211424705](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210430211424705.png)
+![image-20210430211424705](assets\image-20210430211424705.png)
 
 ### worker节点
 
@@ -48,7 +48,7 @@ ray start --address='172.30.239.56:6379' --redis-password='5241590000000000' #�
 
 预期看到以下界面
 
-![image-20210430211805093](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210430211805093.png)
+![image-20210430211805093](assets\image-20210430211805093.png)
 
 如果要退出集群，只需
 
@@ -58,7 +58,7 @@ ray stop
 
 预期看到以下界面
 
-![image-20210430211857192](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210430211857192.png)
+![image-20210430211857192](assets/image-20210430211857192.png)
 
 ## tagging程序依赖包安装
 
