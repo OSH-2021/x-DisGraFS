@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Change query root</title>
+    <link rel="stylesheet" href="./node_modules/popoto/dist/popoto.min.css">
+    <style>
+        #popoto-graph:fullscreen {
+            width: 100%;
+            height: 100%;
+        }
+
+        #popoto-graph:-webkit-full-screen {
+            width: 100%;
+            height: 100%;
+        }
+
+        #popoto-graph:-moz-full-screen {
+            width: 100%;
+            height: 100%;
+        }
+
+        #popoto-graph:-ms-fullscreen {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ppt-container-graph {
+            background-color: #22252a;
+            height: 600px;
+            padding: 0 0 0;
+            border-bottom-right-radius: 5px 5px;
+            border-bottom-left-radius: 5px 5px;
+            overflow: hidden;
+        }
+        /* 鼠标样式 */
+        .ppt-result {
+            cursor: pointer;
+        }
+
+    </style>
+    <script src="login.js" charset="utf-8"></script>
+</head>
+<body class="ppt-body" id = "main">
+
+<section class="ppt-section-main">
+    <div class="ppt-section-header">
+        <span class="ppt-header-span">Graph</span> change random query root
+    </div>
+
+    <div style="text-align: center; padding: 15px; background-color: #444951;">
+        <button id="randomize" style="background-color: #22252a;border: none;color: white;\
+        padding: 15px 32px;text-align: center;text-decoration: none;\
+        display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;\
+        margin:40 auto;width:200px;height:20px;">
+            DisGraFS
+        </button>
+    </div>
+
+    <div class="navbar-fixed">
+        <nav style="background-color: #444951;">
+            <div class="nav-wrapper">
+                <!--关闭部分-->
+                <a id = "OpenClient"><button>启动客户端</button></a>
+                <button onclick = "ExitClient();">关闭客户端</button>
+            </div>
+            <div class="nav-wrapper">
+            <form style="height:100%; margin-left: 8%; margin-right: 8%; background-color: #525863;"
+                  onsubmit="event.preventDefault(); return false;">
+                <div class="input-field">
+                    <input id="search" type="search" required>
+                    <label class="label-icon" for="search"><i
+                            class="ppt-icon ppt-icon-search-plus" style="color:#8bb71a;"></i></label>
+                </div>
+            </form>
+        </div>
+        </nav>
+    </div>
+
+    <div class="ppt-container-graph">
+        <nav class="ppt-taxo-nav">
+            <div id="popoto-taxonomy">
+                <span class="ppt-header-span">Taxonomies:</span><br><br>
+            </div>
+        </nav>
+        <div id="popoto-graph" class="ppt-div-graph">
+            <!-- Graph will be generated here-->
+        </div>
+    </div>
+
+    <div id="popoto-cypher" class="ppt-container-cypher">
+        <!-- Cypher query viewer will be generated here -->
+    </div>
+
+    <div class="ppt-section-header">
+        <!-- The total results count is updated with a listener defined below -->
+        RESULTS <span id="result-total-count" class="ppt-count"></span>
+    </div>
+
+    <div id="popoto-results" class="ppt-container-results">
+        <!-- Results will be generated here -->
+    </div>
+
+</section>
+
+<script src="./node_modules/jquery/dist/jquery.min.js" charset="utf-8"></script>
+<script src="./node_modules/d3/dist/d3.min.js" charset="utf-8"></script>
+<script src="./node_modules/popoto/dist/popoto.js" charset="utf-8"></script>
+<script src="action.js" charset="utf-8"></script>
+<script src="ui.js" charset="utf-8"></script>
+<script src="database.js" charset="utf-8"></script>
+</body>
+</html>
