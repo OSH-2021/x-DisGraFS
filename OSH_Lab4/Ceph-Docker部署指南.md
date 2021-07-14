@@ -189,14 +189,14 @@ docker run -d \
 初始化10G的镜像文件：
 
 ```
-mkdir -p /usr/local/ceph-disk
-dd if=/dev/zero of=/usr/local/ceph-disk/ceph-disk-01 bs=1G count=10
+sudo mkdir -p /usr/local/ceph-disk
+sudo dd if=/dev/zero of=/usr/local/ceph-disk/ceph-disk-01 bs=1G count=10
 ```
 
 将镜像文件虚拟成块设备：
 
 ```
-losetup -f /usr/local/ceph-disk/ceph-disk-01
+sudo losetup -f /usr/local/ceph-disk/ceph-disk-01
 ```
 
 注意，上一步执行的时候，可能系统会找不到空闲的loop设备。尤其是反复操作了好几次之后容易发生这种情况。这时可以查看目前所有loop设备，找到一个未使用的，并将其卸载。参考：[https://blog.csdn.net/litianze99/article/details/44453991](https://blog.csdn.net/litianze99/article/details/44453991)
@@ -206,7 +206,7 @@ losetup -f /usr/local/ceph-disk/ceph-disk-01
 格式化：
 
 ```
-mkfs.xfs -f /dev/loop6
+sudo mkfs.xfs -f /dev/loop6
 ```
 
 上一步中的`loop6`需要替换成之前查到的设备。
@@ -215,7 +215,7 @@ mkfs.xfs -f /dev/loop6
 
 ```
 sudo mkdir /usr/local/ceph/data/osd/
-mount /dev/loop6 /usr/local/ceph/data/osd/
+sudo mount /dev/loop6 /usr/local/ceph/data/osd/
 ```
 
 上一步中的`loop6`同样需要替换成之前查到的设备。
@@ -327,7 +327,7 @@ sudo mv ~/temp/ceph/* /usr/local/ceph
 在执行`start_osd.sh`脚本之前，首先需要在mon节点生成osd的密钥信息，不然直接启动会报错。命令如下：
 
 ```
-docker exec -it mon ceph auth get client.bootstrap-osd -o /var/lib/ceph/bootstrap-osd/ceph.keyring
+sudo docker exec -it mon ceph auth get client.bootstrap-osd -o /var/lib/ceph/bootstrap-osd/ceph.keyring
 ```
 
 接着在每个节点执行`start_osd.sh`即可。
